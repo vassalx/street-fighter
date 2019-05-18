@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Street Figth</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="src/styles/styles.css">
+  <title>Street Figth</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+  </div>
+  <div id="loading-overlay">
+    <img src="resources/logo.png" />
+  </div>
+  <div class="modal">
+    <div class="modal-content">
+      <span class="close-button">×</span>
+      <form>
+        <p>
+          <label for="fname">Name</label></br>
+          <input type="text" id="fname" name="name" placeholder="Fighter's name">
+        </p>
+        <p>
+          <label for="fhealth">Health</label></br>
+          <input type="number" id="fhealth" name="health" placeholder="Fighter's health">
+        </p>
+        <p>
+          <label for="fdefense">Defense</label></br>
+          <input type="number" id="fdefense" name="defense" placeholder="Fighter's defense">
+        </p>
+        <p>
+          <label for="fattack">Attack</label></br>
+          <input type="number" id="fattack" name="attack" placeholder="Fighter's attack">
+        </p>
+        <button type='button' class="fighter-save">Save</button>
+      </form>
     </div>
-    <div id="loading-overlay">
-        <img src="resources/logo.png"/>
-    </div>
-    <script src="dist/bundle.js"></script>
-  </body>
+  </div>
+  <script src="dist/bundle.js"></script>
+</body>
+
 </html>
