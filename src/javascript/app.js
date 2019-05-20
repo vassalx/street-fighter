@@ -18,8 +18,8 @@ class App {
       App.loadingElement.style.visibility = 'visible';
       
       App.fighters = await fighterService.getFighters();
-      const fightersView = new FightersView(App.fighters);
-      const fightersElement = fightersView.element;
+      App.fightersView = new FightersView(App.fighters);
+      const fightersElement = App.fightersView.element;
 
       App.rootElement.appendChild(fightersElement);
     } catch (error) {
@@ -33,11 +33,11 @@ class App {
   }
 
   static async handleStartClick(){
+    App.fightersMap = App.fightersView.fightersDetailsMap;
     App.rootElement.innerHTML="";
     App.chooseHandler = App.chooseFighterHandler.bind(this);
-    this.fightersView = new FightersView(App.fighters,App.chooseHandler);
-    const fightersElement = this.fightersView.element;
-    console.log(this.fightersView);
+    App.fightersView = new FightersView(App.fighters,App.chooseHandler);
+    const fightersElement = App.fightersView.element;
     let chooseFighters = document.createElement("h1");
     chooseFighters.innerHTML = "Choose Fighters";
     App.rootElement.appendChild(chooseFighters);
@@ -45,24 +45,24 @@ class App {
   }
 
   static async chooseFighterHandler(event, fighter){
-    if(!this.fighter1){
-      if(this.fightersView.fightersDetailsMap.has(fighter._id)){
-        this.fighter1 = this.fightersView.fightersDetailsMap.get(fighter._id);
+    if(!App.fighter1){
+      if(App.fightersMap.has(fighter._id)){
+        App.fighter1 = App.fightersMap.get(fighter._id);
       }else{
-        this.fighter1 = await fighterService.getFighterDetails(fighter._id);
+        App.fighter1 = await fighterService.getFighterDetails(fighter._id);
       }
       document.getElementById(`f-${fighter._id}`).classList.add('fighter-1');
       return;
     }
-    if(!this.fighter2){
-      if(this.fightersView.fightersDetailsMap.has(fighter._id)){
-        this.fighter2 = this.fightersView.fightersDetailsMap.get(fighter._id);
+    if(!App.fighter2){
+      if(App.fightersMap.has(fighter._id)){
+        App.fighter2 = App.fightersMap.get(fighter._id);
       }else{
-        this.fighter2 = await fighterService.getFighterDetails(fighter._id);
+        App.fighter2 = await fighterService.getFighterDetails(fighter._id);
       }
       document.getElementById(`f-${fighter._id}`).classList.add('fighter-2');
       setTimeout(() => {
-        App.startFight(this.fighter1,this.fighter2)
+        App.startFight(App.fighter1,App.fighter2)
       },App.timeout);
       return;
     }

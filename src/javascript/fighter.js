@@ -1,7 +1,5 @@
 class Fighter {
     constructor(fighter) {
-        console.log('construct');
-        console.log(fighter);
         this._id = fighter._id;
         this.name = fighter.name;
         this.health = fighter.health;

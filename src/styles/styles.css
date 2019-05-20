@@ -70,12 +70,29 @@ body {
     justify-content: center;
 }
 
+.winner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:40pt;
+}
+
+.loser {
+    -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
+    filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+}
+
 .health-bar{
     position: absolute;
     top: 0;
     height: 30px;
     width: 50%;
-    border: thick solid darkred;
+    border: thin solid darkred;
     text-align: center;
 }
 
@@ -83,11 +100,13 @@ body {
     height: 100%;
     width: 100%;
     background-color: red;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
 }
 
 .health-value{
     position: absolute;
-    display: inline-block;
+    width: 100%;
     top:0;
     text-align: center;
     font-size: 20pt;
@@ -145,7 +164,6 @@ body {
     width: 200px;
     font-size: 20pt;
     border-radius: 10px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: white;
     background-color: red;
     -webkit-transition-duration: 0.2s;
@@ -187,6 +205,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.right-fighter .health{
+    float: right;
 }
 
 .right-fighter .fighter-image{
