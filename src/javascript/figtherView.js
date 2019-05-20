@@ -13,8 +13,11 @@ class FighterView extends View {
     const imageElement = this.createImage(source);
 
     this.element = this.createElement({ tagName: 'div', className: 'fighter' });
+    this.element.id = `f-${fighter._id}`;
     this.element.append(imageElement, nameElement);
-    this.element.addEventListener('click', event => handleClick(event, fighter), false);
+    if (handleClick) {
+      this.element.addEventListener('click', event => handleClick(event, fighter), false);
+    }
   }
 
   createName(name) {

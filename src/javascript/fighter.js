@@ -1,37 +1,13 @@
-class Figther {
-    constructor(figther) {
-        this.name = figther.name;
-        this.health = figther.health;
-        this.attack = figther.attack;
-        this.defense = figther.defense;
-    }
-
-    get name(){
-        return this.name;
-    }
-    set name(value){
-        this.name = value;
-    }
-
-    get health(){
-        return this.health;
-    }
-    set health(value){
-        this.health = value;
-    }
-
-    get attack(){
-        return this.attack;
-    }
-    set attack(value){
-        this.attack = value;
-    }
-
-    get defense(){
-        return this.defense;
-    }
-    set defense(value){
-        this.defense = value;
+class Fighter {
+    constructor(fighter) {
+        console.log('construct');
+        console.log(fighter);
+        this._id = fighter._id;
+        this.name = fighter.name;
+        this.health = fighter.health;
+        this.attack = fighter.attack;
+        this.defense = fighter.defense;
+        this.source = fighter.source;
     }
 
     getHitPower(){
@@ -46,3 +22,5 @@ class Figther {
         return power;
     }
 }
+
+export default Fighter;

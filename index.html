@@ -11,18 +11,19 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root">
+    <div id="start">Start Fight</div>
   </div>
   <div id="loading-overlay">
     <img src="resources/logo.png" />
+  </div>
+  <div id="vs">
+    <img src="resources/vs.png" />
   </div>
   <div class="modal">
     <div class="modal-content">
       <span class="close-button">×</span>
       <form>
-        <p>
-          <label for="fname">Name</label></br>
-          <input type="text" id="fname" name="name" placeholder="Fighter's name">
-        </p>
+        <h1 id="fname"></h1>
         <p>
           <label for="fhealth">Health</label></br>
           <input type="number" id="fhealth" name="health" placeholder="Fighter's health">

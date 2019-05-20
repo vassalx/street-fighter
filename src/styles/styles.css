@@ -58,6 +58,41 @@ body {
     background: rgba(255, 255, 255, 0.7);
 }
 
+#vs{
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.health-bar{
+    position: absolute;
+    top: 0;
+    height: 30px;
+    width: 50%;
+    border: thick solid darkred;
+    text-align: center;
+}
+
+.health{
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}
+
+.health-value{
+    position: absolute;
+    display: inline-block;
+    top:0;
+    text-align: center;
+    font-size: 20pt;
+}
+
 .modal {
     position: fixed;
     left: 0;
@@ -104,4 +139,61 @@ body {
 
 .figther-id{
     display: none;
+}
+
+#start{
+    width: 200px;
+    font-size: 20pt;
+    border-radius: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    background-color: red;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    border-color: darkred;
+    margin-top: 100px;
+    padding: 10px;
+    text-align: center;
+    visibility: hidden;
+}
+
+#start:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.fighter-1{
+    border: thick solid blue;
+}
+
+.fighter-2{
+    border: thick solid red;
+}
+
+.left-fighter{
+    float: left;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-fighter{
+    float: right;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-fighter .fighter-image{
+    transform: scale(-1, 1)
+}
+
+.game{
+    width: 100%;
+    height: 100%;
 }

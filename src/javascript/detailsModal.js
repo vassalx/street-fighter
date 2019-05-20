@@ -16,7 +16,7 @@ class DetailsModal {
 
     showDetails(details){
         this.details = details;
-        this.nameInp.value = details.name;
+        this.nameInp.innerHTML = details.name;
         this.healthInp.value = details.health;
         this.defenseInp.value = details.defense;
         this.attackInp.value = details.attack;
@@ -24,7 +24,6 @@ class DetailsModal {
     }
 
     saveDetails(){
-        this.details.name = this.nameInp.value;
         this.details.health = this.healthInp.value;
         this.details.defense = this.defenseInp.value;
         this.details.attack = this.attackInp.value;
