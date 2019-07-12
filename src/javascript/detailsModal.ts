@@ -6,14 +6,14 @@ class DetailsModal {
         this.closeButton.addEventListener("click", this.toggleModal);
     }
 
-    modal = document.querySelector(".modal");
-    closeButton = this.modal.querySelector(".close-button");
-    nameInp = this.modal.querySelector("#fname");
-    healthInp: HTMLInputElement = this.modal.querySelector("#fhealth");
-    defenseInp: HTMLInputElement = this.modal.querySelector("#fdefense");
-    attackInp: HTMLInputElement = this.modal.querySelector("#fattack");
-    saveButton = this.modal.querySelector(".fighter-save");
-    details: any;
+    protected modal = document.querySelector(".modal");
+    protected closeButton = this.modal.querySelector(".close-button");
+    protected nameInp = this.modal.querySelector("#fname");
+    protected healthInp: HTMLInputElement = this.modal.querySelector("#fhealth");
+    protected defenseInp: HTMLInputElement = this.modal.querySelector("#fdefense");
+    protected attackInp: HTMLInputElement = this.modal.querySelector("#fattack");
+    public saveButton = this.modal.querySelector(".fighter-save");
+    protected details: any;
 
     showDetails(details: any){
         this.details = details;

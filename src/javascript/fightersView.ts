@@ -5,8 +5,8 @@ import { fighterService } from './services/fightersService'
 import Fighter from './fighter';
 
 class FightersView extends View {
-  handleClick: (event: Event) => void;
-  modal: DetailsModal;
+  protected handleClick: (event: Event) => void;
+  protected modal: DetailsModal;
 
   constructor(fighters: Fighter[], handler?: (event: Event) => void) {
     super();

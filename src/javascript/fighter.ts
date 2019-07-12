@@ -1,10 +1,10 @@
 class Fighter {
-    _id: number;
-    name: string;
-    health: number;
-    attack: number;
-    defense: number;
-    source: string;
+    public _id: number;
+    public name: string;
+    public health: number;
+    public attack: number;
+    public defense: number;
+    public source: string;
     
     constructor(fighter) {
         this._id = fighter._id;

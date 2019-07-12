@@ -1,5 +1,5 @@
 class View {
-    element: HTMLElement;
+    public element: HTMLElement;
   
     createElement({ tagName, className = '', attributes = {} }): HTMLElement {
       const element = document.createElement(tagName);

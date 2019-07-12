@@ -9,16 +9,16 @@ class App {
     this.startApp();
   }
 
-  static startButton = document.getElementById('start');
-  static readonly timeout = 1000;
-  static rootElement = document.getElementById('root');
-  static loadingElement = document.getElementById('loading-overlay');
-  static fighters: Fighter[];
-  static fightersView: FightersView;
-  static fightersMap: Map<number, any>;
-  static chooseHandler;
-  static fighter1: Fighter;
-  static fighter2: Fighter;
+  protected static startButton = document.getElementById('start');
+  protected static readonly timeout = 1000;
+  protected static rootElement = document.getElementById('root');
+  protected static loadingElement = document.getElementById('loading-overlay');
+  protected static fighters: Fighter[];
+  protected static fightersView: FightersView;
+  protected static fightersMap: Map<number, any>;
+  protected static chooseHandler;
+  protected static fighter1: Fighter;
+  protected static fighter2: Fighter;
 
   async startApp() {
     try {
