@@ -1,13 +1,14 @@
 import View from './view';
+import Fighter from './fighter';
 
 class FighterView extends View {
-  constructor(fighter, handleClick) {
+  constructor(fighter: Fighter, handleClick?: (event: Event, fighter: Fighter) => void) {
     super();
 
     this.createFighter(fighter, handleClick);
   }
 
-  createFighter(fighter, handleClick) {
+  createFighter(fighter: Fighter, handleClick?: (event: Event, fighter: Fighter) => void) {
     const { name, source } = fighter;
     const nameElement = this.createName(name);
     const imageElement = this.createImage(source);
@@ -20,14 +21,14 @@ class FighterView extends View {
     }
   }
 
-  createName(name) {
-    const nameElement = this.createElement({ tagName: 'span', className: 'name' });
+  createName(name: string) : HTMLElement {
+    const nameElement: HTMLElement = this.createElement({ tagName: 'span', className: 'name' });
     nameElement.innerText = name;
 
     return nameElement;
   }
 
-  createImage(source) {
+  createImage(source: string) : HTMLElement{
     const attributes = { src: source };
     const imgElement = this.createElement({
       tagName: 'img',

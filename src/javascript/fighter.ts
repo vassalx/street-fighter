@@ -1,4 +1,11 @@
 class Fighter {
+    _id: number;
+    name: string;
+    health: number;
+    attack: number;
+    defense: number;
+    source: string;
+    
     constructor(fighter) {
         this._id = fighter._id;
         this.name = fighter.name;
@@ -8,15 +15,15 @@ class Fighter {
         this.source = fighter.source;
     }
 
-    getHitPower(){
+    getHitPower(): number{
         const criticalHitChance = Math.random() + 1;
-        let power = this.attack * criticalHitChance;
+        const power = this.attack * criticalHitChance;
         return power;
     }
 
-    getBlockPower(){
+    getBlockPower(): number{
         const dodgeChance = Math.random() + 1;
-        let power = this.defense * dodgeChance;
+        const power = this.defense * dodgeChance;
         return power;
     }
 }

@@ -12,7 +12,7 @@ class FighterService {
     }
   }
 
-  async getFighterDetails(_id) {
+  async getFighterDetails(_id: number) {
     try {
       const endpoint = `details/fighter/${_id}.json`;
       const apiResult = await callApi(endpoint, 'GET');

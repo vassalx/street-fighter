@@ -2,9 +2,13 @@ import View from './view';
 import FighterView from './figtherView';
 import DetailsModal from './detailsModal';
 import { fighterService } from './services/fightersService'
+import Fighter from './fighter';
 
 class FightersView extends View {
-  constructor(fighters, handler) {
+  handleClick: (event: Event) => void;
+  modal: DetailsModal;
+
+  constructor(fighters: Fighter[], handler?: (event: Event) => void) {
     super();
     if(handler){
       this.handleClick = handler.bind(this);
@@ -16,9 +20,9 @@ class FightersView extends View {
     this.modal.saveButton.addEventListener("click", () => this.updateDetails(this.modal.saveDetails()));
   }
 
-  fightersDetailsMap = new Map();
+  fightersDetailsMap = new Map<number,any>();
 
-  createFighters(fighters) {
+  createFighters(fighters: Fighter[]) {
     const fighterElements = fighters.map(fighter => {
       const fighterView = new FighterView(fighter, this.handleClick);
       return fighterView.element;
@@ -28,8 +32,8 @@ class FightersView extends View {
     this.element.append(...fighterElements);
   }
 
-  async handleFigtherClick(event, fighter) {
-    let details;
+  async handleFigtherClick(event: Event, fighter: Fighter) {
+    let details: any;
     if (!this.fightersDetailsMap.has(fighter._id)) {
       details = await fighterService.getFighterDetails(fighter._id);
       this.fightersDetailsMap.set(fighter._id, details);
@@ -39,7 +43,7 @@ class FightersView extends View {
     this.modal.showDetails(details);
   }
 
-  updateDetails(figther) {
+  updateDetails(figther: Fighter) {
     if (this.fightersDetailsMap.has(figther._id)) {
       this.fightersDetailsMap.set(figther._id, figther);
     }

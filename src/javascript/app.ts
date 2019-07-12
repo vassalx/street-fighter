@@ -4,14 +4,21 @@ import Fighter from './fighter';
 import { fighterService } from './services/fightersService';
 
 class App {
+
   constructor() {
     this.startApp();
   }
 
   static startButton = document.getElementById('start');
-  static timeout = 1000;
+  static readonly timeout = 1000;
   static rootElement = document.getElementById('root');
   static loadingElement = document.getElementById('loading-overlay');
+  static fighters: Fighter[];
+  static fightersView: FightersView;
+  static fightersMap: Map<number, any>;
+  static chooseHandler;
+  static fighter1: Fighter;
+  static fighter2: Fighter;
 
   async startApp() {
     try {
@@ -38,13 +45,13 @@ class App {
     App.chooseHandler = App.chooseFighterHandler.bind(this);
     App.fightersView = new FightersView(App.fighters,App.chooseHandler);
     const fightersElement = App.fightersView.element;
-    let chooseFighters = document.createElement("h1");
+    const chooseFighters = document.createElement("h1");
     chooseFighters.innerHTML = "Choose Fighters";
     App.rootElement.appendChild(chooseFighters);
     App.rootElement.appendChild(fightersElement);
   }
 
-  static async chooseFighterHandler(event, fighter){
+  static async chooseFighterHandler(event: Event, fighter: Fighter){
     if(!App.fighter1){
       if(App.fightersMap.has(fighter._id)){
         App.fighter1 = App.fightersMap.get(fighter._id);
@@ -68,9 +75,9 @@ class App {
     }
   }
 
-  static startFight(f1,f2){
+  static startFight(f1: Fighter,f2: Fighter){
     App.rootElement.innerHTML="";
-    let gameView = new GameView(new Fighter(f1),new Fighter(f2));
+    const gameView = new GameView(new Fighter(f1),new Fighter(f2));
     const gameElement = gameView.element;
     App.rootElement.appendChild(gameElement);
   }

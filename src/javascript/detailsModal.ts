@@ -9,12 +9,13 @@ class DetailsModal {
     modal = document.querySelector(".modal");
     closeButton = this.modal.querySelector(".close-button");
     nameInp = this.modal.querySelector("#fname");
-    healthInp = this.modal.querySelector("#fhealth");
-    defenseInp = this.modal.querySelector("#fdefense");
-    attackInp = this.modal.querySelector("#fattack");
+    healthInp: HTMLInputElement = this.modal.querySelector("#fhealth");
+    defenseInp: HTMLInputElement = this.modal.querySelector("#fdefense");
+    attackInp: HTMLInputElement = this.modal.querySelector("#fattack");
     saveButton = this.modal.querySelector(".fighter-save");
+    details: any;
 
-    showDetails(details){
+    showDetails(details: any){
         this.details = details;
         this.nameInp.innerHTML = details.name;
         this.healthInp.value = details.health;
@@ -23,7 +24,7 @@ class DetailsModal {
         this.toggleModal();
     }
 
-    saveDetails(){
+    saveDetails(): any{
         this.details.health = this.healthInp.value;
         this.details.defense = this.defenseInp.value;
         this.details.attack = this.attackInp.value;

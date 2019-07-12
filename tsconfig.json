@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es6",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "noUnusedParameters": false
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
